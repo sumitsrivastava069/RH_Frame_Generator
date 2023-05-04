@@ -1,5 +1,4 @@
-FROM registry.access.redhat.com/ubi9/python-39:1-108
-
+FROM docker.io/python
 # By default, listen on port 8081
 EXPOSE 8081/tcp
 
@@ -12,6 +11,7 @@ COPY requirements.txt .
 
 # Install any dependencies
 RUN pip install -r requirements.txt
+RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
 
 # Copy the content of the local src directory to the working directory
 COPY . .

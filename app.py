@@ -23,6 +23,8 @@ def FrameCapture(path):
                 cv2.imwrite("./frame/frame%d.jpg" % count, image)
 
             count += 1
+    while not success:
+        print("No Frame Found")
 
     # Release the video file object and close all windows
     vidObj.release()

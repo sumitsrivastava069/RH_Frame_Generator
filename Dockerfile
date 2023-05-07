@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Copy the source code to the working directory
 COPY . .
-
+/usr/local/bin/python -m pip install --upgrade pip
 # Install any necessary dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 RUN apt-get update && apt-get install -y libsm6 libxext6 ffmpeg

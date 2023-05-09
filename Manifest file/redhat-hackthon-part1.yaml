@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "4"
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"redhathackthon:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"redhathackthon\")].image"}]'
+    openshift.io/generated-by: OpenShiftNewApp
+  creationTimestamp: "2023-05-07T20:19:26Z"
+  generation: 4
+  labels:
+    app: redhathackthon
+    app.kubernetes.io/component: redhathackthon
+    app.kubernetes.io/instance: redhathackthon
+  name: redhathackthon
+  namespace: hackathon2023-intelligent-vehicle-pass
+  resourceVersion: "115714042"
+  uid: 68f2eb4b-5ca2-47ed-9194-0b9e5f47030f
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      deployment: redhathackthon
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+      creationTimestamp: null
+      labels:
+        deployment: redhathackthon
+    spec:
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/hackathon2023-intelligent-vehicle-pass/redhathackthon@sha256:bde6f1a2977c45d6a4187ba370a91d76e44208f7033a9919b4de8e55aaf20665
+        imagePullPolicy: IfNotPresent
+        name: redhathackthon
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /app/frame_new
+          name: cctv-mp4-storage
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: cctv-mp4-storage
+        persistentVolumeClaim:
+          claimName: cctv-mp4-storage
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2023-05-08T06:12:25Z"
+    lastUpdateTime: "2023-05-08T06:12:25Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2023-05-08T06:22:26Z"
+    lastUpdateTime: "2023-05-08T06:22:26Z"
+    message: ReplicaSet "redhathackthon-6b95cf6856" has timed out progressing.
+    reason: ProgressDeadlineExceeded
+    status: "False"
+    type: Progressing
+  observedGeneration: 4
+  readyReplicas: 1
+  replicas: 2
+  unavailableReplicas: 1
+  updatedReplicas: 1

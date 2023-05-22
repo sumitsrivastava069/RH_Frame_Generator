@@ -23,7 +23,7 @@ def frame_capture(path):
         if success:
             # Check if the frame is a multiple of 10
             if count % 60 == 0:
-                cv2.imwrite("./frame_new/frame%d.jpg" % count, image)
+                cv2.imwrite("./Frames/frame%d.jpg" % count, image)
 
             count += 1
 
@@ -33,7 +33,7 @@ def frame_capture(path):
 
 def monitor_folder():
     
-    folder_path = "./frame"
+    folder_path = "./CCTV_Capture"
     
     processed_files = set()
 

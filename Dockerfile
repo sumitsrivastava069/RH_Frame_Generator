@@ -8,9 +8,9 @@ COPY . .
 # Install any necessary dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 RUN apt-get update && apt-get install -y libsm6 libxext6 ffmpeg
-CMD mkdir -p /app/storage/{Frame,CCTV_Capture} && chmod -R 777 /app
+CMD chmod -R 777 /app/* 
 
-CMD python -c "from app import FrameCapture; FrameCapture('./frame/test_new.mp4')"
+#CMD python -c "from app import FrameCapture; FrameCapture('./frame/test_new.mp4')"
 
 # Expose port 5000 for 
 # EXPOSE 5000

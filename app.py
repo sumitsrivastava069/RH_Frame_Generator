@@ -22,7 +22,7 @@ def frame_capture(path):
 
         if success:
             # Check if the frame is a multiple of 10
-            if count % 60 == 0:
+            if count % 240 == 0:
                 cv2.imwrite("./storage/Frame/frame%d.jpg" % count, image)
 
             count += 1

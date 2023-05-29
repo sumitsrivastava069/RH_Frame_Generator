@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM registry.redhat.io/rhel8/python-39
 
 WORKDIR /app
 

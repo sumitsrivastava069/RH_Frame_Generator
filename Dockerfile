@@ -11,11 +11,16 @@ RUN apt-get update && apt-get install -y libsm6 libxext6 ffmpeg
 
 
 #CMD python -c "from app import FrameCapture; FrameCapture('./frame/test_new.mp4')"
-CMD chown -R sumit:sumit /app
+CMD chown -R 1000830000:1000830000 /app
 # Expose port 5000 for 
 # EXPOSE 5000
 CMD chmod -R 777 /app
+CMD rm -rf /app/storage/Frame
 CMD chmod -R 777 /app/storage/Frame && chmod -R 777 /app/storage/CCTV_Capture
-USER sumit
+
+USER 1000830000
+RUN mkdir -p /app/storage/Frame
+RUN chmod -R 777 /app/*
+
 # Start the application
 CMD ["python", "app.py"]

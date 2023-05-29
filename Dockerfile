@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y libsm6 libxext6 ffmpeg
 # Expose port 5000 for 
 # EXPOSE 5000
 RUN chmod -R 0777 /app
-VOLUME /app/storage/Frame
-RUN chmod -R 777 /app/storage/Frame && chmod -R 777 /app/storage/CCTV_Capture
+#VOLUME /app/storage/Frame
+RUN chgrp -R 0 /app/storage/Frame && chmod -R g+rwX /app/storage/Frame
 # Start the application
 CMD ["python", "app.py"]

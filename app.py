@@ -5,7 +5,7 @@ from flask import Flask
 import csv
 
 def write_to_csv(file_name):
-    csv_file = "./storage/Frames/processed_files.csv"
+    csv_file = "./storage/Frame/processed_files.csv"
     with open(csv_file, 'a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow([file_name])
@@ -30,7 +30,7 @@ def frame_capture(path):
         if success:
             # Check if the frame is a multiple of 10
             if count % 60 == 0:
-                cv2.imwrite("./storage/Frames/frame%d.jpg" % count, image)
+                cv2.imwrite("./storage/Frame/frame%d.jpg" % count, image)
 
             count += 1
 
@@ -40,7 +40,7 @@ def frame_capture(path):
 
 def monitor_folder():
     folder_path = "./storage/CCTV_Capture"
-    csv_file = "./storage/Frames/processed_files.csv"
+    csv_file = "./storage/Frame/processed_files.csv"
 
     # Load existing file names from CSV
     existing_files = set()

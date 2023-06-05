@@ -6,9 +6,8 @@ WORKDIR /app
 COPY --chmod=777 . .
 #python -m pip install --upgrade pip
 # Install any necessary dependencies
-RUN apt-get update && apt-get install -y libsm6 libxext6 ffmpeg python3-setuptools python3-dev
 RUN pip install --no-cache-dir -r requirements.txt
-
+RUN apt-get update && apt-get install -y libsm6 libxext6 ffmpeg
 
 
 #CMD python -c "from app import FrameCapture; FrameCapture('./frame/test_new.mp4')"

@@ -1,5 +1,5 @@
 opencv-python
 flask
-csv
+python-csv
 os-sys
 time

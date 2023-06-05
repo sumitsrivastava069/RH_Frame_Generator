@@ -1,4 +1,3 @@
 opencv-python
 flask
 python-csv
-os-sys

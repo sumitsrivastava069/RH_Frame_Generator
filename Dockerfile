@@ -13,6 +13,6 @@ RUN apt-get update && apt-get install -y libsm6 libxext6 ffmpeg
 
 RUN chmod -R 0777 /app
 #VOLUME /app/storage/Frame
-RUN chgrp -R 0 /app/storage/frameprocessorstorage && chmod -R g+rwX /app/storage/frameprocessorstorage
+RUN chgrp -R 0 /app/storage/framegeneratorstorage && chmod -R g+rwX /app/storage/framegeneratorstorage
 # Start the application
 CMD ["python", "app.py"]

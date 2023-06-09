@@ -6,7 +6,7 @@ import csv
 import logging
 
 
-csv_file_path = "./storage/processed_mp4.csv/processed_mp4.csv"
+csv_file_path = "./storage/framegeneratorstorage/processed_mp4.csv"
 numberoflines = 0
 
 with open(csv_file_path, 'r') as file:

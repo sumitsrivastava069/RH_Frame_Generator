@@ -51,7 +51,7 @@ def frame_capture(path):
 
 
 def monitor_folder():
-    folder_path = "./storage/framegeneratorstorage"
+    folder_path = "./storage/video"
     csv_file = "./storage/framegeneratorstorage/processed_mp4.csv"
     # Load existing file names from CSV
     existing_files = set()

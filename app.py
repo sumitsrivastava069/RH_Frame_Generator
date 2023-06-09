@@ -6,7 +6,7 @@ import csv
 import logging
 
 
-csv_file_path = "./storage/frameprocessorstorage/processed_mp4.csv"
+csv_file_path = "./storage/video/processed_mp4.csv"
 numberoflines = 0
 
 with open(csv_file_path, 'r') as file:
@@ -17,7 +17,7 @@ video_count = numberoflines
 
 
 def write_to_csv(file_name):
-    csv_file = "./storage/frameprocessorstorage/processed_mp4.csv"
+    csv_file = "./storage/framegeneratorstorage/processed_mp4.csv"
     with open(csv_file, 'a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow([file_name])
@@ -42,7 +42,7 @@ def frame_capture(path):
         if success:
             # Check if the frame is a multiple of 10
             if count % 60 == 0:
-                cv2.imwrite("./storage/frameprocessorstorage/video%d_frame%d.jpg" % (video_count, count), image)
+                cv2.imwrite("./storage/framegeneratorstorage/video%d_frame%d.jpg" % (video_count, count), image)
 
             count += 1
 
@@ -52,7 +52,7 @@ def frame_capture(path):
 
 def monitor_folder():
     folder_path = "./storage/framegeneratorstorage"
-    csv_file = "./storage/frameprocessorstorage/processed_mp4.csv"
+    csv_file = "./storage/framegeneratorstorage/processed_mp4.csv"
     # Load existing file names from CSV
     existing_files = set()
     with open(csv_file, 'r') as file:

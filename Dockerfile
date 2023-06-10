@@ -2,7 +2,7 @@ FROM python:3.10
 
 WORKDIR /app
 
-# Copy the source code to the working directory
+# Copy the source code to the workin directory
 COPY --chmod=777 . .
 
 # Install any necessary dependencies

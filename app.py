@@ -7,13 +7,6 @@ import logging
 
 
 csv_file_path = "./storage/framegeneratorstorage/processed_mp4.csv"
-numberoflines = 0
-
-with open(csv_file_path, 'r') as file:
-    csv_reader = csv.reader(file)
-    numberoflines = sum(1 for row in csv_reader)
-
-video_count = numberoflines
 
 
 def write_to_csv(file_name):
@@ -26,13 +19,15 @@ def write_to_csv(file_name):
 app = Flask(__name__)
 
 def frame_capture(path):
-    
+    with open(csv_file_path, 'r') as file:
+        csv_reader = csv.reader(file)
+        video_count = sum(1 for row in csv_reader)
+
     vidObj = cv2.VideoCapture(path)
 
     # Used as counter variable
     count = 0
 
-    
     success = True
 
     while success:
@@ -81,7 +76,6 @@ def monitor_folder():
         # sleep for a few seconds before checking again
         time.sleep(5)
 
-app = Flask(__name__)
 if __name__ == '__main__':
     monitor_folder()
     

@@ -79,4 +79,4 @@ def monitor_folder():
 if __name__ == '__main__':
     monitor_folder()
     
-    app.run()
+    app.run(debug=True)

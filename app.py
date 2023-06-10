@@ -61,7 +61,7 @@ def monitor_folder():
         # get all files in the folder
         files = os.listdir(folder_path)
 
-        # check for new files
+        # check for new files cd
         for file_name in files:
             try:
                 if file_name.endswith(".mp4") and file_name not in existing_files:
